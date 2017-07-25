@@ -34,7 +34,7 @@ geos <- cbind(geos, GID)
 
 # Data summaries ----------------------------------------------------------
 # Cropland by box size (GeoSurvey box/quadrat size is in hectares)
-crp <- glmer(CP~Box+(1|GID), family=binomial, data=geos) ## random intercept model
+cp <- glmer(CP~Box+(1|GID), family=binomial, data=geos) ## random intercept model
 display(cp)
 
 # Presence of buildings by box size
