@@ -33,3 +33,16 @@ gidy <- ifelse(geos$y<0, paste("S", ygid, sep=""), paste("N", ygid, sep=""))
 GID <- paste(gidx, gidy, sep="-")
 geos <- cbind(geos, GID)
 
+# Data summaries ----------------------------------------------------------
+# Cropland by box size (GeoSurvey box size is in hectares)
+crp <- glmer(CP~Box+(1|GID), family=binomial, data=geos) ## random intercept model
+display(cp)
+
+# Presence of buildings by box size
+bp <- glmer(BP~Box+(1|GID), family=binomial, data=geos)
+display(bp)
+
+# Presence of woody vegetation cover >60% by box size
+wp <- glmer(WP~Box+(1|GID), family=binomial, data=geos)
+display(bp)
+
