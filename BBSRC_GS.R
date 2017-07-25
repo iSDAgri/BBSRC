@@ -1,11 +1,10 @@
 #' Ethiopia BBSRC GeoSurvey  
 #' M. Walsh, July 2017
 
-# install.packages(c("downloader","rgdal","raster"), dependencies=T)
+# install.packages(c("downloader","rgdal","arm"), dependencies=T)
 suppressPackageStartupMessages({
   require(downloader)
   require(rgdal)
-  require(raster)
   require(arm)
 })
 
@@ -34,7 +33,7 @@ GID <- paste(gidx, gidy, sep="-")
 geos <- cbind(geos, GID)
 
 # Data summaries ----------------------------------------------------------
-# Cropland by box size (GeoSurvey box size is in hectares)
+# Cropland by box size (GeoSurvey box/quadrat size is in hectares)
 crp <- glmer(CP~Box+(1|GID), family=binomial, data=geos) ## random intercept model
 display(cp)
 
@@ -44,5 +43,4 @@ display(bp)
 
 # Presence of woody vegetation cover >60% by box size
 wp <- glmer(WP~Box+(1|GID), family=binomial, data=geos)
-display(bp)
-
+display(wp)
