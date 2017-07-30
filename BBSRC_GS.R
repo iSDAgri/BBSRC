@@ -6,6 +6,7 @@ suppressPackageStartupMessages({
   require(downloader)
   require(rgdal)
   require(arm)
+  require(raster)
 })
 
 # Data setup --------------------------------------------------------------
